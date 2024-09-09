@@ -38,7 +38,7 @@ class _RootPageState extends State<RootPage> {
   //Lista de titulos
   List<String> titleList = [
     'Olá, Name',
-    'Cadastro',
+    'Cadastrar instituição',
     'Perfil',
     'Configurações',
   ];
@@ -53,14 +53,14 @@ class _RootPageState extends State<RootPage> {
             Text(
               titleList[_bottomNavIndex],
               style: const TextStyle(
-                color: Colors.black,
+                color: Color.fromARGB(255, 206, 205, 205),
                 fontWeight: FontWeight.w500,
                 fontSize: 24,
               ),
             ),
           ],
         ),
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: ConstantsColors.CorPrinciapal,
         elevation: 0.0,
       ),
       body: IndexedStack(

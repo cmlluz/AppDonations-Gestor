@@ -5,8 +5,8 @@ import 'package:appdonationsgestor/resources/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class ItemRegisterPage extends StatelessWidget {
-  ItemRegisterPage({Key? key}) : super(key: key);
+class ItemEditPage extends StatelessWidget {
+  ItemEditPage({Key? key}) : super(key: key);
 
   final ProductRegistrationController _controller =
       ProductRegistrationController();
@@ -18,11 +18,11 @@ class ItemRegisterPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            GoRouter.of(context).go('/bar_state');
+            GoRouter.of(context).go('/institution_profile_page');
           },
         ),
         title: const Text(
-          'Criar nova necessidade',
+          'Editar necessidade',
           style: TextStylesConstants.kformularyTitle,
         ),
         backgroundColor: const Color.fromARGB(255, 3, 32, 106),
@@ -78,10 +78,6 @@ class DonationItemComponent extends StatelessWidget {
                 type: TextInputType.name,
                 controller: productRegistrationController.crtlItemName),
             const SizedBox(height: 20),
-            const Text('Descrição'),
-            CustomTextField(
-                type: TextInputType.multiline,
-                controller: productRegistrationController.crtlDesc),
             const SizedBox(height: 20),
             const Text('Categoria e Quantidade'),
             Row(
@@ -114,7 +110,7 @@ class DonationItemComponent extends StatelessWidget {
                   width: 400,
                   child: ElevatedButton(
                     onPressed: () {
-                      GoRouter.of(context).go('/institution_profile_page');
+                      GoRouter.of(context).go('/bar_state');
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.indigo.shade900,

@@ -1,4 +1,5 @@
 import 'package:appdonationsgestor/components/image_card.dart';
+import 'package:appdonationsgestor/components/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class InstitutionPage extends StatefulWidget {
@@ -12,35 +13,35 @@ class _InstitutionPageState extends State<InstitutionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Instituições'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(
-                  child: SearchBar(),
+                  child: Searchbar(),
                 ),
-                const SizedBox(width: 8.0),
               ],
             ),
             const SizedBox(height: 16.0),
             Expanded(
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: 10,
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: const [
-                          ImageCard(),
-                          SizedBox(width: 15.0),
-                          ImageCard(),
-                        ],
-                      ),
-                      const SizedBox(height: 16.0),
+                    children: const [
+                      ImageCard(),
+                      SizedBox(height: 16.0),
                     ],
                   );
                 },

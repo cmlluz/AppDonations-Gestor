@@ -3,7 +3,6 @@ import 'package:appdonationsgestor/components/item_card.dart';
 import 'package:appdonationsgestor/components/profile_info_component.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class InstitutionProfilePage extends StatefulWidget {
   const InstitutionProfilePage({super.key});
@@ -17,6 +16,24 @@ class InstitutionProfilePageState extends State<InstitutionProfilePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Perfil da Instituição'),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          iconTheme: const IconThemeData(color: Colors.black),
+          titleTextStyle: const TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.w900,
+            fontFamily: 'Poppins',
+          ),
+        ),
         backgroundColor: Colors.white,
         body: SizedBox.expand(
           child: SingleChildScrollView(
@@ -28,22 +45,9 @@ class InstitutionProfilePageState extends State<InstitutionProfilePage> {
                     margin: const EdgeInsets.only(bottom: 20.0),
                     padding: const EdgeInsets.symmetric(
                         horizontal: 20, vertical: 20),
-                    child: const Column(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: EdgeInsets.all(0),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Meu Perfil",
-                              style: TextStyle(
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.w900,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ),
                         ProfileInfoComponent(),
                         Padding(
                           padding: EdgeInsets.all(11.0),

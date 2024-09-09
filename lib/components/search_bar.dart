@@ -8,23 +8,28 @@ class Searchbar extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: TextField(
-            decoration: InputDecoration(
-              hintText: 'O que você busca?',
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(8.0),
-                borderSide: BorderSide.none,
+          child: Container(
+            decoration: BoxDecoration(
+              color: const Color(0xFFE0E0E0),
+              borderRadius: BorderRadius.circular(20.0),
+            ),
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'O que você busca?',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide.none,
+                ),
+                filled: true,
+                fillColor: const Color.fromARGB(17, 238, 238, 238),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 16.0),
+                suffixIcon: Icon(
+                  Icons.search,
+                  color: const Color.fromARGB(213, 0, 0, 0).withOpacity(.6),
+                ),
               ),
-              filled: true,
-              fillColor: Colors.grey.shade200,
-              contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
             ),
           ),
-        ),
-        const SizedBox(width: 8.0),
-        Icon(
-          Icons.search,
-          color: Colors.black54.withOpacity(.6),
         ),
       ],
     );

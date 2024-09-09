@@ -34,7 +34,9 @@ class ItemCardComponentState extends State<ItemCardComponent> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 8.5),
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          context.push("/item_edit_page");
+                        },
                         icon: Image.asset(
                           'assets/EditIcon.png',
                           scale: 4.5,

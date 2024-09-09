@@ -31,7 +31,7 @@ class _LoginPage extends State<LoginPage> {
             gradient: LinearGradient(
               colors: [
                 Color.fromARGB(255, 214, 212, 212),
-                Color.fromARGB(181, 5, 21, 94),
+               ConstantsColors.CorPrinciapal,
               ],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
