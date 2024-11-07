@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   children: [
                     SizedBox(
-                      height: 20.0,
+                      height: 5.0,
                     ),
                     ListTile(
                       leading: CircleAvatar(

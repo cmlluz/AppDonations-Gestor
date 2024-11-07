@@ -22,7 +22,7 @@ class _RootPageState extends State<RootPage> {
   //lista das paginas
   List<Widget> pages = const [
     HomePage(),
-    InstitutionRegisterPage(),
+    InstitutionPage(),
     ManagerProfilePage(),
     SettingsPage(),
   ];
@@ -30,7 +30,7 @@ class _RootPageState extends State<RootPage> {
   //lista de icones das paginas
   List<IconData> iconList = [
     Icons.home,
-    Icons.add,
+    Icons.list,
     Icons.person,
     Icons.settings,
   ];
@@ -38,7 +38,7 @@ class _RootPageState extends State<RootPage> {
   //Lista de titulos
   List<String> titleList = [
     'Olá, Name',
-    'Cadastrar instituição',
+    'Instituições',
     'Perfil',
     'Configurações',
   ];
@@ -53,14 +53,13 @@ class _RootPageState extends State<RootPage> {
             Text(
               titleList[_bottomNavIndex],
               style: const TextStyle(
-                color: Color.fromARGB(255, 206, 205, 205),
+                color: ConstantsColors.CorPrinciapal,
                 fontWeight: FontWeight.w500,
                 fontSize: 24,
               ),
             ),
           ],
         ),
-        backgroundColor: ConstantsColors.CorPrinciapal,
         elevation: 0.0,
       ),
       body: IndexedStack(
@@ -72,13 +71,16 @@ class _RootPageState extends State<RootPage> {
           Navigator.push(
             context,
             PageTransition(
-              child: const InstitutionPage(),
+              child: const InstitutionRegisterPage(),
               type: PageTransitionType.bottomToTop,
             ),
           );
         },
-        child: Icon(Icons.list),
+        child: Icon(Icons.add, color: Colors.white),
         backgroundColor: ConstantsColors.CorPrinciapal,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(100),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: AnimatedBottomNavigationBar(

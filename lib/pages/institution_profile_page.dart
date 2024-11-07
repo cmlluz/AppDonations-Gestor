@@ -1,8 +1,10 @@
+import 'package:appdonationsgestor/pages/popup_menu_state.dart';
+import 'package:appdonationsgestor/resources/constant_colors.dart';
+import 'package:flutter/material.dart';
 import 'package:appdonationsgestor/components/gallery_state.dart';
 import 'package:appdonationsgestor/components/item_card.dart';
 import 'package:appdonationsgestor/components/profile_info_component.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 class InstitutionProfilePage extends StatefulWidget {
   const InstitutionProfilePage({super.key});
@@ -29,86 +31,74 @@ class InstitutionProfilePageState extends State<InstitutionProfilePage> {
           iconTheme: const IconThemeData(color: Colors.black),
           titleTextStyle: const TextStyle(
             color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.w900,
-            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+            fontSize: 24,
           ),
         ),
         backgroundColor: Colors.white,
-        body: SizedBox.expand(
-          child: SingleChildScrollView(
-            child: SizedBox(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 20.0),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        ProfileInfoComponent(),
-                        Padding(
-                          padding: EdgeInsets.all(11.0),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Detalhes",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w900,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut ali"),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.all(11.0),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Suas Necessidades",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w900,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ),
-                        ItemCardComponent(),
-                        Padding(
-                          padding: EdgeInsets.all(11.0),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Visitas",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w900,
-                                  fontFamily: 'Poppins'),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                      height: 500,
-                      child: Container(
-                        child: Gallery(),
-                      ))
-                ],
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 20),
+              ProfileInfoComponent(),
+              const SizedBox(height: 20),
+              const Text(
+                "Detalhes",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900,
+                  fontFamily: 'Poppins',
+                ),
               ),
-            ),
+              const SizedBox(height: 8),
+              const Text(
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                style: TextStyle(fontSize: 16),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                "Suas Necessidades",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900,
+                  fontFamily: 'Poppins',
+                ),
+              ),
+              const SizedBox(height: 8),
+              ItemCardComponent(),
+              const SizedBox(height: 20),
+              const Text(
+                "Visitas",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900,
+                  fontFamily: 'Poppins',
+                ),
+              ),
+              const SizedBox(height: 8),
+              Expanded(
+                child: Gallery(),
+              ),
+            ],
           ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              PageTransition(
+                child: const PopupMenuState(),
+                type: PageTransitionType.bottomToTop,
+              ),
+            );
+          },
+          child: const Icon(
+            Icons.add,
+            color: Colors.white,
+          ),
+          backgroundColor: ConstantsColors.CorPrinciapal,
         ),
       ),
     );

@@ -3,6 +3,8 @@ import 'package:appdonationsgestor/pages/institution_profile_page.dart';
 import 'package:appdonationsgestor/pages/item_edit_page.dart';
 import 'package:appdonationsgestor/pages/item_register_page.dart';
 import 'package:appdonationsgestor/pages/login_page.dart';
+import 'package:appdonationsgestor/pages/popup_menu_state.dart';
+import 'package:appdonationsgestor/pages/post_page.dart';
 import 'package:appdonationsgestor/resources/root_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -18,6 +20,7 @@ class RouteNames {
   static const String bottom_bar_state = "bar_state";
   static const String post_page = "post_page";
   static const String root = "root";
+  static const String popup_menu_state = "popup_menu_state";
 }
 
 class AppRountersConfiguration {
@@ -76,6 +79,24 @@ class AppRountersConfiguration {
           pageBuilder: (context, state) {
             return MaterialPage(
               child: ItemEditPage(),
+            );
+          },
+        ),
+        GoRoute(
+          path: '/popup_menu_state',
+          name: RouteNames.popup_menu_state,
+          pageBuilder: (context, state) {
+            return MaterialPage(
+              child: PopupMenuState(),
+            );
+          },
+        ),
+        GoRoute(
+          path: '/post_page',
+          name: RouteNames.post_page,
+          pageBuilder: (context, state) {
+            return MaterialPage(
+              child: PostPage(),
             );
           },
         ),

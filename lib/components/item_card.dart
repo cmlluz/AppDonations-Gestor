@@ -123,33 +123,6 @@ class ItemCardComponentState extends State<ItemCardComponent> {
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Material(
-            elevation: 5.0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
-            ),
-            child: Container(
-              width: 400.0,
-              height: 70.0,
-              decoration: const BoxDecoration(),
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: IconButton(
-                  onPressed: () {
-                    context.push("/item_register_page");
-                  },
-                  icon: const Icon(
-                    Icons.add,
-                    size: 40,
-                    color: Color.fromARGB(255, 24, 32, 101),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
       ],
     );
   }

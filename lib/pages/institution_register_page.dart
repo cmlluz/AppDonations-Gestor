@@ -31,6 +31,15 @@ class _InstitutionRegisterPage extends State<InstitutionRegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cadastrar instituição'),
+        titleTextStyle: const TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontFamily: 'Poppins',
+        ),
+        backgroundColor: ConstantsColors.CorPrinciapal,
+      ),
       body: SizedBox.expand(
         child: Container(
           width: MediaQuery.of(context).size.width,
@@ -51,6 +60,7 @@ class _InstitutionRegisterPage extends State<InstitutionRegisterPage> {
               padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
+                  const SizedBox(height: 20),
                   _buildTextFieldWithLabel(
                       'Nome: ', TextInputType.text, nameController),
                   const SizedBox(height: 20),
@@ -84,7 +94,25 @@ class _InstitutionRegisterPage extends State<InstitutionRegisterPage> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                    ),
+                    onPressed: () {
+                      GoRouter.of(context).go('/root');
+                    },
+                    child: const Text(
+                      'Cancelar',
+                      style: TextStyle(
+                        color: ConstantsColors.CorPrinciapal,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

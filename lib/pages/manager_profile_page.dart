@@ -59,7 +59,7 @@ class _ManagerProfilePage extends State<ManagerProfilePage> {
                           style: TextStylesConstants.kTitleProfile,
                         ),
                         Text(
-                          '(71)99345-5411',
+                          '(71)12345-6789',
                           style: TextStylesConstants.kformularyText,
                         ),
                       ],

@@ -3,6 +3,7 @@ import 'package:appdonationsgestor/resources/constant_colors.dart';
 import 'package:appdonationsgestor/resources/text_styles.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
+import 'package:auth_buttons/auth_buttons.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -31,7 +32,7 @@ class _LoginPage extends State<LoginPage> {
             gradient: LinearGradient(
               colors: [
                 Color.fromARGB(255, 214, 212, 212),
-               ConstantsColors.CorPrinciapal,
+                ConstantsColors.CorPrinciapal,
               ],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
@@ -43,11 +44,33 @@ class _LoginPage extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // Adding space above the main content
+                const SizedBox(height: 80),
                 _buildTextFieldWithLabel(
                     'Login', TextInputType.emailAddress, emailController),
                 const SizedBox(height: 20),
-                _buildTextFieldWithLabel(
-                    'Senha', TextInputType.visiblePassword, passwordController),
+                Stack(
+                  children: [
+                    _buildTextFieldWithLabel('Senha',
+                        TextInputType.visiblePassword, passwordController),
+                    Positioned(
+                      right: 0,
+                      bottom: 0,
+                      child: TextButton(
+                        onPressed: () {
+                          // Navegar para a página de recuperação de senha
+                        },
+                        child: const Text(
+                          'Esqueci minha senha',
+                          style: TextStyle(
+                            color: ConstantsColors.CorPrinciapal,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -60,7 +83,7 @@ class _LoginPage extends State<LoginPage> {
                     GoRouter.of(context).go('/root');
                   },
                   child: const Text(
-                    'Confirmar',
+                    'Continuar',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,
@@ -68,6 +91,58 @@ class _LoginPage extends State<LoginPage> {
                   ),
                 ),
                 const SizedBox(height: 20),
+                // Divider and "ou" text
+                Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        color: Colors.grey.shade600,
+                        thickness: 1,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Text(
+                        'ou',
+                        style: TextStylesConstants.kformularyText.copyWith(
+                          color: Colors.grey.shade600,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        color: Colors.grey.shade600,
+                        thickness: 1,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 20),
+                // Row to align Google and Facebook buttons horizontally
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: GoogleAuthButton(
+                        onPressed: () {},
+                        style: AuthButtonStyle(
+                          buttonType: AuthButtonType.icon,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: FacebookAuthButton(
+                        onPressed: () {},
+                        style: AuthButtonStyle(
+                          buttonType: AuthButtonType.icon,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

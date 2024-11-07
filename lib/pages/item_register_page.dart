@@ -18,7 +18,7 @@ class ItemRegisterPage extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            GoRouter.of(context).go('/bar_state');
+            GoRouter.of(context).go('/popup_menu_state');
           },
         ),
         title: const Text(
